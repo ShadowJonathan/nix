@@ -890,7 +890,7 @@ sockopt_impl!(
     libc::IPV6_RECVERR,
     bool
 );
-#[cfg(target_os = "linux")]
+#[cfg(any(target_os = "android", target_os = "linux"))]
 sockopt_impl!(
     /// Control receiving of asynchronous error options.
     IpMtu,

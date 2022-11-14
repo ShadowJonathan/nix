@@ -237,7 +237,7 @@ fn test_so_tcp_keepalive() {
 }
 
 #[test]
-#[cfg(target_os = "linux")]
+#[cfg(any(target_os = "android", target_os = "linux"))]
 fn test_get_mtu() {
     use nix::sys::socket::{bind, connect, SockaddrIn};
     use std::net::SocketAddrV4;
