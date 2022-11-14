@@ -890,6 +890,15 @@ sockopt_impl!(
     libc::IPV6_RECVERR,
     bool
 );
+#[cfg(target_os = "linux")]
+sockopt_impl!(
+    /// Control receiving of asynchronous error options.
+    IpMtu,
+    GetOnly,
+    libc::IPPROTO_IP,
+    libc::IP_MTU,
+    libc::c_int
+);
 #[cfg(any(target_os = "android", target_os = "freebsd", target_os = "linux"))]
 sockopt_impl!(
     /// Set or retrieve the current time-to-live field that is used in every
